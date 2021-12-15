@@ -3,17 +3,25 @@
 A fast, modern and highly customizable Date range picker for React. Integrates seamlessly React Hook form and can be styled using your favourite css framework like tailwindcss.
 
 ```jsx
-<DatePicker
-  date={date}
-  onDateChange={(date: Date) => setDate(() => date)}
-  disabledDates={[
-    { date: new Date('2021-12-15'), options: { color: 'black' } },
-    { date: new Date('2021-12-16'), options: { color: 'black' } },
-  ]}
-  collapsable
-  primaryColor='#ff0000'
-  secondaryColor='#a5f3fc'
-></DatePicker>
+import { useState } from 'react';
+import { DateRangePicker, DateRange } from 'react-simple-date-range';
+
+const RangeExample = () => {
+  const [range, setRange] = useState({
+    start: null,
+    end: null,
+  } as DateRange);
+
+  return (
+    <DateRangePicker
+      range={range}
+      onRangeChange={(range) => setRange(() => range)}
+    ></DateRangePicker>
+  );
+};
+
+export default RangeExample;
+
 ```
 
 ## Features
