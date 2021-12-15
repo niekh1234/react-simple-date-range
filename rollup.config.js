@@ -9,6 +9,7 @@ import pkg from './package.json';
 
 export default [
   {
+    external: ['react', 'react-dom', 'date-fns', 'typescript', 'react/jsx-runtime'],
     input: 'src/index.ts',
     output: [
       {
@@ -23,6 +24,5 @@ export default [
       },
     ],
     plugins: [commonjs(), resolve(), ts(), postcss({ plugins: [autoprefixer()] }), terser()],
-    external: ['react', 'react-dom'],
   },
 ];
