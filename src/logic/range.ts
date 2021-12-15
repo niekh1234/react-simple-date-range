@@ -6,7 +6,7 @@ export const getDatesInRange = (
   range: DateRange,
   isPreview = false,
 ): DateRangeMap => {
-  if (!range.start || !range.end) {
+  if (!range.start || !range.end || !month.length) {
     return {};
   }
 
