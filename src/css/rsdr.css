@@ -1,0 +1,190 @@
+.rsdr_parent-container button,
+select,
+input {
+  border: none;
+}
+
+.rsdr_parent-container button {
+  background: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  cursor: pointer;
+  height: auto;
+}
+
+.rsdr_parent-container {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin: 1rem;
+}
+
+.rsdr_input-group {
+  position: relative;
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.rsdr_input-group svg {
+  position: absolute;
+  left: 0.5rem;
+  height: 2rem;
+  width: 1.5rem;
+  top: 0.15rem;
+  color: #444;
+}
+
+.rsdr_input {
+  width: 100%;
+  height: 2rem;
+  border-radius: 0.6rem;
+  padding: 0rem 0.5rem 0rem 2.5rem;
+  border: 3px solid #ccc;
+}
+
+.rsdr_input:focus {
+  border: 3px solid;
+  outline: none;
+}
+
+.rsdr_container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.rsdr_header {
+  height: 4rem;
+  border-radius: 1rem 1rem 0rem 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+  color: #555;
+}
+
+.rsdr_selector > * + * {
+  margin-left: 1rem;
+}
+
+.rsdr_selector select {
+  background-color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  user-select: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.rsdr_selector select:hover {
+  background-color: #fbfbfb;
+}
+
+.rsdr_month-arrow {
+  padding: 0.4rem 0.4rem;
+  border-radius: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  font-weight: 900;
+  color: black;
+}
+
+.rsdr_month-arrow svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.rsdr_calendar {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+}
+
+.rsdr_calendar > * + * {
+  margin-top: 0.4rem;
+}
+
+.rsdr_calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 100%;
+  height: 2rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.rsdr_daypicker {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-weight: 400;
+  color: #555;
+}
+
+.rsdr_header-weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rsdr_cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.6rem;
+  padding: 0.4rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.rsdr_range-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.6rem;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.rsdr_btn-save {
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background-color: #18b8b0;
+  color: #fff;
+}
+
+.rsdr_cell:not(.rsdr_disabled):not(.rsdr_active):hover {
+  background-color: #eee;
+}
+
+.rsdr_range-cell:not(.rsdr_disabled):not(.rsdr_active):hover {
+  background-color: #eee;
+  border-radius: 0.5rem;
+}
+
+.rsdr_disabled {
+  color: #ccc;
+  cursor: default;
+}
+
+.rsdr_active:not(.rsdr_disabled) {
+  background-color: #18b8b0;
+  color: white;
+}
