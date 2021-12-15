@@ -1,6 +1,6 @@
 {
   "name": "react-simple-date-range",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple, customizable date range picker for React",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
