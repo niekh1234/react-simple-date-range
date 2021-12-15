@@ -4,38 +4,28 @@ sidebar_position: 1
 
 # Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+React simple date range provides an easy solution for integrating `DatePicker` and `DateRange` components.
 
-## Getting Started
+## 💣 Features
 
-Get started by **creating a new site**.
+✍️ **Fully customizable** date cells and colors.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+⚡️ It's **fast**, using a clever approach to reduce re-renders.
 
-```jsx
-function HelloCodeTitle(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-```
+🇹 React Simple Date Picker is written in **TypeScript** so provides full typing out of the box.
 
-## Generate a new site
+📕 Integrates seamlessly with every form library.
 
-Generate a new Docusaurus site using the **classic template**:
+## The 'why'
 
-```shell
-npm init docusaurus@latest my-website classic
-```
+While browsing the internet trying to find a react date range component that fit my needs I was out of luck. I needed a date range picker for my project that required different colors for different types of disabled ranges. With a popular option such as `react-date-range` I was able to accomplish most of my needs. In fact, I would highly recommend using `react-date-range` as it proved to be a very good library. But my requirements required more out of the component than I thought it was capable of. I needed something custom, using a custom color scheme and the ability to customize a `cell` depending on some input I gave the picker.
 
-## Start your site
+## Roadmap
 
-Run the development server:
+- `DatePicker` and `DateRange` hooks, provided full control over the UI without having to worry about the logic.
+- Integration with more form libraries
+- Writing tests for the codebase
 
-```shell
-cd my-website
+## Contributing
 
-npx docusaurus start
-```
-
-Your site starts at `http://localhost:3000`.
-
-Open `docs/intro.md` and edit some lines: the site **reloads automatically** and displays your changes.
+Please, if you have something to say (positive, or more important negative) feel free to reach out or create an **issue** on github.

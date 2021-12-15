@@ -13,7 +13,8 @@
   },
   "scripts": {
     "build": "rm -rf dist && rollup -c",
-    "start": "rollup -c -w"
+    "start": "rollup -c -w",
+    "test": "echo \"No test specified\""
   },
   "peerDependencies": {
     "date-fns": "^2.27.0",
@@ -40,5 +41,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "np": "^7.6.0"
+  }
 }
