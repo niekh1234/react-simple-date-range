@@ -1,0 +1,38 @@
+# Simple example
+
+:::caution
+
+This package is still in its **early stages**, bugs or weird behaviour are possibilities
+
+:::
+
+In order to get started, start by installing the package using a package manager of your choice. Please see our [installation](installation.mdx) steps for instructions.
+
+In a normal setting, where you have a form containing some form
+
+```jsx
+import { FormEvent, useState } from 'react';
+
+const MyForm = () => {
+  const [dateInputValue, setDateInputValue] = useState(new Date().toISOString());
+
+  const handleFormSubmission = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(dateInputValue);
+  };
+
+  return (
+    <form onSubmit={handleFormSubmission}>
+      <input
+        type='date'
+        value={dateInputValue}
+        onChange={(e) => setDateInputValue(e.target.value)}
+      />
+
+      <button type='submit'>submit</button>
+    </form>
+  );
+};
+
+export default MyForm;
+```

@@ -11,8 +11,8 @@ import DateInput from './Input';
 import '../css/rsdr.css';
 
 export interface DateRangePickerProps {
-  range: DateRange;
-  onRangeChange: (range: DateRange) => void;
+  value: DateRange;
+  onChange: (range: DateRange) => void;
   primaryColor?: string;
   secondaryColor?: string;
   disabledDates?: DateCell[];
@@ -26,8 +26,8 @@ export interface DateRangePickerProps {
 }
 
 export const DateRangePicker = ({
-  range,
-  onRangeChange,
+  value,
+  onChange,
   primaryColor = '#18b8b0',
   secondaryColor = '#d1fffd',
   disabledDates,
@@ -46,7 +46,7 @@ export const DateRangePicker = ({
   const [visibleDays, setVisibleDays] = useState<DateCell[]>([]);
 
   const dayInitials = useMemo(() => getDayInitials(locale), []);
-  const datesInRange = getDatesInRange(visibleDays, range);
+  const datesInRange = getDatesInRange(visibleDays, value);
 
   useEffect(() => {
     const cells = getDateCells(month, year, disabledDates, disabledDays, minDate, maxDate);
@@ -56,13 +56,13 @@ export const DateRangePicker = ({
 
   // highlight selected date range
   const handleRangePreview = (cell: DateCell) => {
-    if (cell.options?.disabled || !range.start || (range.start && range.end)) {
+    if (cell.options?.disabled || !value.start || (value.start && value.end)) {
       setPreviewRange(() => ({}));
       return;
     }
 
     const newRange = {
-      start: range.start,
+      start: value.start,
       end: cell.date,
     };
 
@@ -85,19 +85,19 @@ export const DateRangePicker = ({
 
   const handleRangeSelection = (date: Date) => {
     const newRange = {
-      start: range.start,
-      end: range.end,
-      options: range.options,
+      start: value.start,
+      end: value.end,
+      options: value.options,
     };
 
     // here we determine our next action depending on the current state of the range
-    if (range.start && range.end) {
+    if (value.start && value.end) {
       newRange.start = date;
       newRange.end = null;
-    } else if (range.start) {
-      if (isBefore(date, range.start)) {
+    } else if (value.start) {
+      if (isBefore(date, value.start)) {
         newRange.start = date;
-        newRange.end = range.start;
+        newRange.end = value.start;
       } else {
         newRange.end = date;
       }
@@ -113,7 +113,7 @@ export const DateRangePicker = ({
     // if the range is good, clear the preview.
     setPreviewRange(() => ({}));
     // update the range
-    onRangeChange(newRange);
+    onChange(newRange);
   };
 
   const handleClickOutside = (e: React.FocusEvent<HTMLDivElement, Element>) => {
@@ -124,9 +124,9 @@ export const DateRangePicker = ({
 
   // todo refactor, that looks like a mess
   const inputValue =
-    range.start && range.end
-      ? `${range.start ? formatISO9075(range.start, { representation: 'date' }) : '?'} → ${
-          range.end ? formatISO9075(range.end, { representation: 'date' }) : '?'
+    value.start && value.end
+      ? `${value.start ? formatISO9075(value.start, { representation: 'date' }) : '?'} → ${
+          value.end ? formatISO9075(value.end, { representation: 'date' }) : '?'
         }`
       : 'Select dates';
 

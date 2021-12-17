@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-React simple date range provides an easy solution for integrating `DatePicker` and `DateRange` components.
+**React simple date range** provides an easy solution for integrating `DatePicker` and `DateRange` components.
 
 ## 💣 Features
 
@@ -23,9 +23,9 @@ While browsing the internet trying to find a react date range component that fit
 ## Roadmap
 
 - `DatePicker` and `DateRange` hooks, provided full control over the UI without having to worry about the logic.
-- Integration with more form libraries
-- Writing tests for the codebase
+- More customizability, setting the order of the days of the week.
+- Codebase refactoring and testing.
 
 ## Contributing
 
-Please, if you have something to say (positive, or more important negative) feel free to reach out or create an **issue** on github.
+If you have something to say (positive, or more important negative) feel free to reach out or create an **issue** on github.
