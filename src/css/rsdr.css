@@ -20,6 +20,8 @@ input {
   flex-direction: column;
   align-self: flex-start;
   margin: 1rem;
+  font-size: 16px;
+  color: black;
 }
 
 .rsdr_input-group {
