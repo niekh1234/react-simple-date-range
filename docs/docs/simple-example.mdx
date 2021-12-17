@@ -2,37 +2,46 @@
 
 :::caution
 
-This package is still in its **early stages**, bugs or weird behaviour are possibilities
+This package is still in its **early stages**, bugs or weird behaviour is expected
 
 :::
 
 In order to get started, start by installing the package using a package manager of your choice. Please see our [installation](installation.mdx) steps for instructions.
 
-In a normal setting, where you have a form containing some form
+This is the basis of how you would go about integrating a range component inside of your application.
 
 ```jsx
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
+import { DateRangePicker, DateRange } from 'react-simple-date-range';
 
-const MyForm = () => {
-  const [dateInputValue, setDateInputValue] = useState(new Date().toISOString());
-
-  const handleFormSubmission = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(dateInputValue);
-  };
+const MyRangePicker = () => {
+  const [range, setRange] = useState({
+    start: null,
+    end: null,
+  } as DateRange);
 
   return (
-    <form onSubmit={handleFormSubmission}>
-      <input
-        type='date'
-        value={dateInputValue}
-        onChange={(e) => setDateInputValue(e.target.value)}
-      />
-
-      <button type='submit'>submit</button>
-    </form>
+    <DateRangePicker
+      value={range}
+      onChange={(newRange) => setRange(() => newRange)}
+    ></DateRangePicker>
   );
 };
 
-export default MyForm;
+export default MyRangePicker;
+```
+
+Or just a `DatePicker` component
+
+```jsx
+import { useState } from 'react';
+import { DateRangePicker, DateRange } from 'react-simple-date-range';
+
+const MyRange = () => {
+  const [date, setDate] = useState(new Date());
+
+  return <DatePicker value={range} onChange={(newRange) => setRange(() => newRange)}></DatePicker>;
+};
+
+export default MyRange;
 ```

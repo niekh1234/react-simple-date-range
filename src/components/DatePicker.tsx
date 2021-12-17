@@ -9,8 +9,8 @@ import DateCellRenderer from './DateCell';
 import '../css/rsdr.css';
 
 export interface DatePickerProps {
-  date: Date;
-  onDateChange: (date: Date) => void;
+  value: Date;
+  onChange: (date: Date) => void;
   primaryColor?: string;
   secondaryColor?: string;
   disabledDates?: DateCell[];
@@ -24,8 +24,8 @@ export interface DatePickerProps {
 }
 
 export const DatePicker = ({
-  date,
-  onDateChange,
+  value,
+  onChange,
   primaryColor = '#18b8b0',
   secondaryColor = '#d1fffd',
   disabledDates,
@@ -50,7 +50,7 @@ export const DatePicker = ({
     setVisibleDays(() => cells);
   }, [month, year, disabledDates]);
 
-  const inputValue = formatISO9075(date, { representation: 'date' });
+  const inputValue = formatISO9075(value, { representation: 'date' });
 
   const handleClickOutside = (e: React.FocusEvent<HTMLDivElement, Element>) => {
     if (!e.currentTarget.contains(e.relatedTarget) && collapsable) {
@@ -93,7 +93,7 @@ export const DatePicker = ({
             <div className='rsdr_daypicker'>
               {visibleDays?.map((cell) => (
                 <button
-                  onClick={() => onDateChange(cell.date)}
+                  onClick={() => onChange(cell.date)}
                   key={cell.date.getTime()}
                   disabled={cell.options?.disabled}
                   style={{ padding: '0.1rem 0rem' }}
@@ -101,7 +101,7 @@ export const DatePicker = ({
                 >
                   <DateCellRenderer
                     cell={cell}
-                    date={date}
+                    date={value}
                     customCell={customCell}
                     primaryColor={primaryColor}
                   />
