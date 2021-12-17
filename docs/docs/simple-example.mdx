@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { DateRangePicker, DateRange } from 'react-simple-date-range';
+
 # Simple example
 
 :::caution
@@ -10,7 +13,38 @@ In order to get started, start by installing the package using a package manager
 
 This is the basis of how you would go about integrating a range component inside of your application.
 
+## Creating your first range picker component
+
+1. Start by creating a new `functional` React component
+
 ```jsx
+const MyRangePicker = () => {
+  return ();
+};
+
+export default MyRangePicker;
+```
+
+2. Now add the `DateRangePicker` component
+
+```jsx {1,5-8}
+import { DateRangePicker, DateRange } from 'react-simple-date-range';
+
+const MyRangePicker = () => {
+  return (
+    <DateRangePicker
+      value={range}
+      onChange={(newRange) => setRange(() => newRange)}
+    ></DateRangePicker>
+  );
+};
+
+export default MyRangePicker;
+```
+
+3. Add react `useState` hook and provide the `state` and `setState` as props to the `DateRangePicker` component. If you're using TypeScript you can specify the `DateRange` type using `as`.
+
+```tsx {1,5-8}
 import { useState } from 'react';
 import { DateRangePicker, DateRange } from 'react-simple-date-range';
 
@@ -31,16 +65,25 @@ const MyRangePicker = () => {
 export default MyRangePicker;
 ```
 
-Or just a `DatePicker` component
+const [range, setRange] = useState({
+start: null,
+end: null,
+} as DateRange);
 
-```jsx
+<DateRangePicker value={range} onChange={(newRange) => setRange(() => newRange)}></DateRangePicker>
+
+## Datepicker only
+
+Here is just a `DatePicker` component
+
+```jsx {7}
 import { useState } from 'react';
 import { DateRangePicker, DateRange } from 'react-simple-date-range';
 
 const MyRange = () => {
   const [date, setDate] = useState(new Date());
 
-  return <DatePicker value={range} onChange={(newRange) => setRange(() => newRange)}></DatePicker>;
+  return <DatePicker value={date} onChange={(newDate) => setDate(() => newDate)}></DatePicker>;
 };
 
 export default MyRange;
