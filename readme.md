@@ -14,8 +14,8 @@ const RangeExample = () => {
 
   return (
     <DateRangePicker
-      range={range}
-      onRangeChange={(newRange) => setRange(() => newRange)}
+      value={range}
+      onChange={(newRange) => setRange(() => newRange)}
     ></DateRangePicker>
   );
 };
