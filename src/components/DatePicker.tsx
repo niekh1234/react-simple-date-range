@@ -96,7 +96,7 @@ export const DatePicker = ({
                   onClick={() => onChange(cell.date)}
                   key={cell.date.getTime()}
                   disabled={cell.options?.disabled}
-                  style={{ padding: '0.1rem 0rem' }}
+                  style={{ padding: '1px 0px' }}
                   aria-label={`Select date ${cell.date.toLocaleDateString(locale)}`}
                 >
                   <DateCellRenderer

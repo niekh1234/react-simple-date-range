@@ -79,6 +79,7 @@ input {
 
 .rsdr_selector select {
   background-color: #fff;
+  color: black !important;
   padding: 6.4px 12.8px;
   border-radius: 8px;
   user-select: none;

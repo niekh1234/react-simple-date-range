@@ -39,13 +39,13 @@ export const getYears = (minDate?: Date, maxDate?: Date) => {
 export const getBorderRadius = (position: string) => {
   switch (position) {
     case 'start':
-      return '0.5rem 0rem 0rem 0.5rem';
+      return '8px 0px 0px 8px';
     case 'end':
-      return '0rem 0.5rem 0.5rem 0rem';
+      return '0px 8px 8px 0px';
     case 'center':
-      return '0rem';
+      return '0px';
     default:
-      return '0.5rem';
+      return '8px';
   }
 };
 

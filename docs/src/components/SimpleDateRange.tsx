@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { DateRangePicker, DateRange } from 'react-simple-date-range';
 
 const SimpleDateRangeExample = () => {
