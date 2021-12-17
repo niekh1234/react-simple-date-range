@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { DateRangePicker, DateRange } from 'react-simple-date-range';
 
-const MyRangePicker = () => {
+const SimpleDateRangeExample = () => {
   const [range, setRange] = useState({
     start: null,
     end: null,
@@ -15,4 +15,4 @@ const MyRangePicker = () => {
   );
 };
 
-export default MyRangePicker;
+export default SimpleDateRangeExample;
