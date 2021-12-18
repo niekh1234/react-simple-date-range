@@ -6,10 +6,18 @@ interface DateCellRendererProps {
   cell: DateCell;
   date: Date;
   primaryColor: string;
+  secondaryColor: string;
+  cellHeight: string;
   customCell?: (cell: DateCell, active: Boolean) => JSX.Element;
 }
 
-const DateCellRenderer = ({ cell, date, primaryColor, customCell }: DateCellRendererProps) => {
+const DateCellRenderer = ({
+  cell,
+  date,
+  primaryColor,
+  secondaryColor,
+  customCell,
+}: DateCellRendererProps) => {
   // checking if the current cell is active.
   const isHighlighted = isEqual(
     cell.date,
@@ -23,7 +31,9 @@ const DateCellRenderer = ({ cell, date, primaryColor, customCell }: DateCellRend
 
   const [textColor, backgroundColor] = getColors(
     primaryColor,
+    secondaryColor,
     isHighlighted,
+    false,
     false,
     cell.options?.disabled,
   );

@@ -1,10 +1,11 @@
 import SimpleDateRangeExample from '../src/components/SimpleDateRange';
+import SimpleDatePickerExample from '../src/components/SimpleDatePickerExample';
 
 # Simple example
 
 :::caution
 
-This package is still in its **early stages**, bugs or weird behaviour is expected
+This package is still in its **early stages**, bugs or weird behaviour might occur.
 
 :::
 
@@ -64,6 +65,8 @@ const MyRangePicker = () => {
 export default MyRangePicker;
 ```
 
+And this is how that would look like
+
 <SimpleDateRangeExample></SimpleDateRangeExample>
 
 ## Datepicker only
@@ -74,11 +77,15 @@ Here is just a `DatePicker` component
 import { useState } from 'react';
 import { DateRangePicker, DateRange } from 'react-simple-date-range';
 
-const MyRange = () => {
+const MyDatePicker = () => {
   const [date, setDate] = useState(new Date());
 
   return <DatePicker value={date} onChange={(newDate) => setDate(() => newDate)}></DatePicker>;
 };
 
-export default MyRange;
+export default MyDatePicker;
 ```
+
+And that would look like this:
+
+<SimpleDatePickerExample></SimpleDatePickerExample>

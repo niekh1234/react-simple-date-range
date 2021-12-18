@@ -6188,9 +6188,9 @@ react-simple-code-editor@^0.10.0:
   integrity sha512-bL5W5mAxSW6+cLwqqVWY47Silqgy2DKDTR4hDBrLrUqC5BXc29YVx17l2IZk5v36VcDEq1Bszu2oHm1qBwKqBA==
 
 react-simple-date-range@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/react-simple-date-range/-/react-simple-date-range-1.1.8.tgz#8bfaccd6ee975b693c57f87d56fb1a1ace8f350a"
-  integrity sha512-Hv413U6BFOWVLLr94fMyAUZXvuGmSuzGrnu8L4RZ4YfNd5n15zCOtsn+G2sxknJabUKdGLhkmGQqDPFxEsa9kg==
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/react-simple-date-range/-/react-simple-date-range-1.1.10.tgz#a3af9d08cbe7ae4c764f80684f541aec0814e96d"
+  integrity sha512-Ats19IY0cmiBX/Sw2hIUCIVNUGUNZFzS9RzLL5e/QhmP/r59P4AzI8F6eq1IQGjIDZ1GxwNw3SX8mMgq3D9uZQ==
   dependencies:
     date-fns "^2.27.0"
 

@@ -164,30 +164,19 @@ input {
   height: 40px;
   padding: 8px;
   cursor: pointer;
-}
-
-.rsdr_btn-save {
-  padding: 8px 16px;
-  border-radius: 4.8px;
-  background-color: #18b8b0;
-  color: #fff;
+  background-color: #ffffff;
 }
 
 .rsdr_cell:not(.rsdr_disabled):not(.rsdr_active):hover {
-  background-color: #eee;
+  background-color: #f8fafc;
 }
 
 .rsdr_range-cell:not(.rsdr_disabled):not(.rsdr_active):hover {
-  background-color: #eee;
+  background-color: #f8fafc;
   border-radius: 8px;
 }
 
 .rsdr_disabled {
   color: #ccc;
   cursor: default;
-}
-
-.rsdr_active:not(.rsdr_disabled) {
-  background-color: #18b8b0;
-  color: white;
 }

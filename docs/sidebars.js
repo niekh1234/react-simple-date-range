@@ -11,6 +11,15 @@ const sidebars = {
       collapsed: false,
       items: ['installation', 'simple-example'],
     },
+    {
+      type: 'category',
+      label: 'Guides',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['basic-guide', 'color-customization', 'custom-cells'],
+    },
   ],
 };
 

@@ -51,25 +51,38 @@ export const getBorderRadius = (position: string) => {
 
 export const getBackgroundColor = (
   primaryColor: string,
+  secondaryColor: string,
   isHighlighted: Boolean,
+  isEdge: Boolean,
   isPreview: Boolean,
   isDisabled?: Boolean,
 ) => {
-  if (isPreview) {
-    return '#eeeeee';
-  } else if (isHighlighted && !isDisabled) {
+  if (isEdge && (isHighlighted || isPreview)) {
     return primaryColor;
+  } else if (isPreview) {
+    return secondaryColor;
+  } else if (isHighlighted && !isDisabled) {
+    return secondaryColor;
   }
-  return '#ffffff';
+  return '';
 };
 
 export const getColors = (
   primaryColor: string,
+  secondaryColor: string,
   isHighlighted: Boolean,
   isPreview: Boolean,
+  isCenter: Boolean,
   isDisabled?: Boolean,
 ) => {
-  const backgroundColor = getBackgroundColor(primaryColor, isHighlighted, isPreview, isDisabled);
+  const backgroundColor = getBackgroundColor(
+    primaryColor,
+    secondaryColor,
+    isHighlighted,
+    !isCenter,
+    isPreview,
+    isDisabled,
+  );
 
   if (isDisabled) {
     return ['#cccccc', backgroundColor];
@@ -87,5 +100,5 @@ export const getBlackOrWhite = (color: string) => {
     return '#000000';
   }
 
-  return parseInt(color.replace('#', ''), 16) > 0xffffff / 2 ? '#000' : '#fff';
+  return parseInt(color.replace('#', ''), 16) > 0xffffff / 2 ? '#000000' : '#ffffff';
 };

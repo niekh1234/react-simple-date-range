@@ -19,6 +19,7 @@ export interface DateRangePickerProps {
   disabledDays?: number[];
   style?: CSSProperties;
   customCell?: (cell: DateCell, active: Boolean, showPreview: Boolean) => JSX.Element;
+  cellHeight: string;
   locale?: string;
   collapsable?: boolean;
   minDate?: Date;
@@ -28,12 +29,13 @@ export interface DateRangePickerProps {
 export const DateRangePicker = ({
   value,
   onChange,
-  primaryColor = '#18b8b0',
-  secondaryColor = '#d1fffd',
+  primaryColor = '#8b5cf6',
+  secondaryColor = '#ede9fe',
   disabledDates,
   disabledDays,
   style = { width: '20rem' },
   customCell,
+  cellHeight = '32px',
   locale = 'default',
   collapsable = false,
   minDate,
@@ -176,6 +178,8 @@ export const DateRangePicker = ({
                     cell={cell}
                     range={{ ...datesInRange, ...previewRange }}
                     primaryColor={primaryColor}
+                    secondaryColor={secondaryColor}
+                    cellHeight={cellHeight}
                     customCell={customCell}
                   />
                 </button>
