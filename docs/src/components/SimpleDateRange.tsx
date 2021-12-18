@@ -12,6 +12,7 @@ const SimpleDateRangeExample = () => {
     <DateRangePicker
       value={range}
       onChange={(newRange) => setRange(() => newRange)}
+      cellHeight='40px'
     ></DateRangePicker>
   );
 };
