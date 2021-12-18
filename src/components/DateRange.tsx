@@ -18,8 +18,8 @@ export interface DateRangePickerProps {
   disabledDates?: DateCell[];
   disabledDays?: number[];
   style?: CSSProperties;
+  cellHeight?: string;
   customCell?: (cell: DateCell, active: Boolean, showPreview: Boolean) => JSX.Element;
-  cellHeight: string;
   locale?: string;
   collapsable?: boolean;
   minDate?: Date;
