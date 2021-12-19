@@ -86,6 +86,7 @@ export const getColors = (
   );
 
   if (isDisabled) {
+    console.log('yep');
     if (dark) {
       return ['#374151', backgroundColor];
     }

@@ -1,11 +1,12 @@
+import { set } from 'date-fns';
 import React from 'react';
 import { useState } from 'react';
 import { DateRangePicker, DateRange } from 'react-simple-date-range';
 
 const DarkModeExample = () => {
   const [range, setRange] = useState({
-    start: null,
-    end: null,
+    start: set(new Date(), { date: 8 }),
+    end: set(new Date(), { date: 14 }),
   } as DateRange);
 
   return (

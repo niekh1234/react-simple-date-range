@@ -1,0 +1,35 @@
+import DisabledDatesSimpleExample from '../src/components/DisabledDatesSimpleExample';
+
+# Disabling dates
+
+You can disable dates in several ways.
+
+1. Disabling dates through an array of disabled [DateCell](types-datecell) objects.
+2. Disabling **specific days** of the week.
+3. Through the use of a **minimum** and **maximum** date.
+
+## Usage
+
+### Disabling dates through an array of disabled [DateCell](types-datecell) objects
+
+If you require certain dates to not be selectable you can specify and array of [DateCell](types-datecell) objects.
+
+#### Disabling some specific days:
+
+```jsx {10}
+const disabledDates = [
+  { date: new Date(2022, 1, 1), options: { disabled: true } },
+  { date: new Date(2022, 1, 2), options: { disabled: true } },
+];
+
+<DateRangePicker
+  value={range}
+  onChange={(newRange) => setRange(() => newRange)}
+  cellHeight='40px'
+  disabledDates={disabledDates}
+></DateRangePicker>;
+```
+
+### Disabling specific days of the week
+
+<DisabledDatesSimpleExample></DisabledDatesSimpleExample>

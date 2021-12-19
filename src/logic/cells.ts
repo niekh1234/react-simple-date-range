@@ -19,9 +19,10 @@ export const getDateCells = (
     end: new Date(year, month, daysInMonth),
   });
 
-  const disabledMap = disabledDates
-    ? generateDisabledMap(month, year, disabledDates, disabledDays, minDate, maxDate)
-    : {};
+  const disabledMap =
+    disabledDates || disabledDays
+      ? generateDisabledMap(month, year, disabledDates, disabledDays, minDate, maxDate)
+      : {};
 
   const cells: DateCell[] = days.map((date: Date) => {
     let disabled = disabledMap[formatISO9075(date, { representation: 'date' })];
@@ -38,6 +39,7 @@ export const getDateCells = (
 
     return { date, options: { disabled: false } };
   });
+
   const { paddingFront, paddingBack } = getPadding(days);
 
   return [...paddingFront, ...cells, ...paddingBack];

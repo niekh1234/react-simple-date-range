@@ -13,12 +13,30 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Guides',
+      label: 'Options',
       link: {
         type: 'generated-index',
       },
       collapsed: false,
-      items: ['basic-guide', 'color-customization', 'dark-mode', 'custom-cells'],
+      items: ['basic-guide', 'color-customization', 'dark-mode', 'disabled-dates'],
+    },
+    {
+      type: 'category',
+      label: 'Advanced',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'Types',
+      link: {
+        type: 'generated-index',
+      },
+      collapsed: false,
+      items: ['types-datecell', 'types-daterange'],
     },
   ],
 };
