@@ -41,7 +41,7 @@ export const DateRangePicker = ({
   collapsable = false,
   minDate,
   maxDate,
-  dark,
+  dark = false,
 }: DateRangePickerProps) => {
   const [collapse, setCollapse] = useState(!collapsable);
   const [previewRange, setPreviewRange] = useState({} as DateRangeMap);
@@ -163,6 +163,7 @@ export const DateRangePicker = ({
             locale={locale}
             minDate={minDate}
             maxDate={maxDate}
+            dark={dark}
           ></RSDRHeader>
 
           <div className='rsdr_calendar'>
