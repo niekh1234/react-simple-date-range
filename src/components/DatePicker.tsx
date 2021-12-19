@@ -39,7 +39,7 @@ export const DatePicker = ({
   collapsable = false,
   minDate,
   maxDate,
-  dark,
+  dark = false,
 }: DatePickerProps) => {
   const [collapse, setCollapse] = useState(!collapsable);
   const [month, setMonth] = useState(new Date().getMonth());
@@ -91,6 +91,7 @@ export const DatePicker = ({
             locale={locale}
             minDate={minDate}
             maxDate={maxDate}
+            dark={dark}
           ></RSDRHeader>
 
           <div className='rsdr_calendar'>

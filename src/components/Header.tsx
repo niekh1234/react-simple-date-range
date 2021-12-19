@@ -12,6 +12,7 @@ interface RSDRHeaderProps {
   locale: string;
   minDate?: Date;
   maxDate?: Date;
+  dark: Boolean;
 }
 
 const RSDRHeader = ({
@@ -24,6 +25,7 @@ const RSDRHeader = ({
   locale,
   minDate,
   maxDate,
+  dark,
 }: RSDRHeaderProps) => {
   const months = useMemo(() => getMonthNames(locale), []);
   const years = useMemo(() => getYears(minDate, maxDate), []);
@@ -92,14 +94,28 @@ const RSDRHeader = ({
       </button>
 
       <div className='rsdr_selector'>
-        <select value={month} onChange={(e) => onSetMonth(parseInt(e.target.value))}>
+        <select
+          value={month}
+          style={{
+            backgroundColor: dark ? '#1f2937' : '#ffffff',
+            color: dark ? '#ffffff' : '#000000',
+          }}
+          onChange={(e) => onSetMonth(parseInt(e.target.value))}
+        >
           {months.map((m, index) => (
             <option key={m} value={index}>
               {m}
             </option>
           ))}
         </select>
-        <select value={year} onChange={(e) => onSetYear(parseInt(e.target.value))}>
+        <select
+          value={year}
+          style={{
+            backgroundColor: dark ? '#1f2937' : '#ffffff',
+            color: dark ? '#ffffff' : '#000000',
+          }}
+          onChange={(e) => onSetYear(parseInt(e.target.value))}
+        >
           {years.map((y) => (
             <option key={y} value={y}>
               {y}

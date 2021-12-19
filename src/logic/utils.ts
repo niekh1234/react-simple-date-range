@@ -86,7 +86,10 @@ export const getColors = (
   );
 
   if (isDisabled) {
-    return ['#cccccc', backgroundColor];
+    if (dark) {
+      return ['#374151', backgroundColor];
+    }
+    return ['#e5e7eb', backgroundColor];
   } else if ((isHighlighted || isPreview) && backgroundColor) {
     const textColor = getBlackOrWhite(backgroundColor);
     return [textColor, backgroundColor];
