@@ -5,7 +5,7 @@ import RSDRHeader from './Header';
 import { getDayInitials } from '../logic/utils';
 import { getDateCells } from '../logic/cells';
 import DateInput from './Input';
-import DateCellRenderer from './DateCell';
+import CellRenderer from './CellRenderer';
 import '../css/rsdr.css';
 
 export interface DatePickerProps {
@@ -17,18 +17,19 @@ export interface DatePickerProps {
   disabledDays?: number[];
   style?: CSSProperties;
   cellHeight?: string;
-  customCell?: (cell: DateCell, active: Boolean) => JSX.Element;
+  customCell?: (cell: DateCell, active: Boolean, showPreview: Boolean) => JSX.Element;
   locale?: string;
   collapsable?: boolean;
   minDate?: Date;
   maxDate?: Date;
+  dark?: Boolean;
 }
 
 export const DatePicker = ({
   value,
   onChange,
-  primaryColor = '#8b5cf6',
-  secondaryColor = '#ede9fe',
+  primaryColor = '#10b981',
+  secondaryColor = '#d1fae5',
   disabledDates,
   disabledDays,
   style = { width: '20rem' },
@@ -38,6 +39,7 @@ export const DatePicker = ({
   collapsable = false,
   minDate,
   maxDate,
+  dark,
 }: DatePickerProps) => {
   const [collapse, setCollapse] = useState(!collapsable);
   const [month, setMonth] = useState(new Date().getMonth());
@@ -71,7 +73,14 @@ export const DatePicker = ({
       {collapsable && <DateInput value={inputValue} primaryColor={primaryColor}></DateInput>}
 
       {collapse && (
-        <div className='rsdr_container' style={style}>
+        <div
+          className='rsdr_container'
+          style={{
+            ...style,
+            backgroundColor: dark ? '#111827' : '#ffffff',
+            color: dark ? '#ffffff' : '#000000',
+          }}
+        >
           <RSDRHeader
             month={month}
             year={year}
@@ -101,13 +110,14 @@ export const DatePicker = ({
                   style={{ padding: '1px 0px' }}
                   aria-label={`Select date ${cell.date.toLocaleDateString(locale)}`}
                 >
-                  <DateCellRenderer
+                  <CellRenderer
                     cell={cell}
                     date={value}
                     cellHeight={cellHeight}
                     customCell={customCell}
                     secondaryColor={secondaryColor}
                     primaryColor={primaryColor}
+                    dark={dark}
                   />
                 </button>
               ))}

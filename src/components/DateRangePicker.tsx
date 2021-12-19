@@ -5,7 +5,7 @@ import { formatISO9075, isBefore } from 'date-fns';
 import { getDayInitials } from '../logic/utils';
 import { getDatesInRange } from '../logic/range';
 import { isRangeDisabled } from '../logic/disabled';
-import RangeCellRenderer from './RangeCell';
+import CellRenderer from './CellRenderer';
 import RSDRHeader from './Header';
 import DateInput from './Input';
 import '../css/rsdr.css';
@@ -24,13 +24,14 @@ export interface DateRangePickerProps {
   collapsable?: boolean;
   minDate?: Date;
   maxDate?: Date;
+  dark?: Boolean;
 }
 
 export const DateRangePicker = ({
   value,
   onChange,
-  primaryColor = '#8b5cf6',
-  secondaryColor = '#ede9fe',
+  primaryColor = '#10b981',
+  secondaryColor = '#d1fae5',
   disabledDates,
   disabledDays,
   style = { width: '20rem' },
@@ -40,6 +41,7 @@ export const DateRangePicker = ({
   collapsable = false,
   minDate,
   maxDate,
+  dark,
 }: DateRangePickerProps) => {
   const [collapse, setCollapse] = useState(!collapsable);
   const [previewRange, setPreviewRange] = useState({} as DateRangeMap);
@@ -143,7 +145,14 @@ export const DateRangePicker = ({
       {collapsable && <DateInput value={inputValue} primaryColor={primaryColor}></DateInput>}
 
       {collapse && (
-        <div className='rsdr_container' style={style}>
+        <div
+          className='rsdr_container'
+          style={{
+            ...style,
+            backgroundColor: dark ? '#111827' : '#ffffff',
+            color: dark ? '#ffffff' : '#000000',
+          }}
+        >
           <RSDRHeader
             month={month}
             year={year}
@@ -174,13 +183,14 @@ export const DateRangePicker = ({
                   style={{ padding: '1px 0px' }}
                   aria-label={`Select date ${cell.date.toLocaleDateString(locale)}`}
                 >
-                  <RangeCellRenderer
+                  <CellRenderer
                     cell={cell}
                     range={{ ...datesInRange, ...previewRange }}
                     primaryColor={primaryColor}
                     secondaryColor={secondaryColor}
                     cellHeight={cellHeight}
                     customCell={customCell}
+                    dark={dark}
                   />
                 </button>
               ))}

@@ -36,7 +36,7 @@ export const getYears = (minDate?: Date, maxDate?: Date) => {
   return years;
 };
 
-export const getBorderRadius = (position: string) => {
+export const getBorderRadius = (position?: string) => {
   switch (position) {
     case 'start':
       return '8px 0px 0px 8px';
@@ -74,6 +74,7 @@ export const getColors = (
   isPreview: Boolean,
   isCenter: Boolean,
   isDisabled?: Boolean,
+  dark?: Boolean,
 ) => {
   const backgroundColor = getBackgroundColor(
     primaryColor,
@@ -86,9 +87,13 @@ export const getColors = (
 
   if (isDisabled) {
     return ['#cccccc', backgroundColor];
-  } else if (isHighlighted && backgroundColor) {
+  } else if ((isHighlighted || isPreview) && backgroundColor) {
     const textColor = getBlackOrWhite(backgroundColor);
     return [textColor, backgroundColor];
+  }
+
+  if (dark) {
+    return ['#ffffff', backgroundColor];
   }
 
   return ['#000000', backgroundColor];

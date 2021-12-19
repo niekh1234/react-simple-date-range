@@ -1,28 +1,39 @@
-import { formatISO9075 } from 'date-fns';
+import { formatISO9075, isEqual, set } from 'date-fns';
 import { getBorderRadius, getColors } from '../logic/utils';
 import { DateCell, DateRangeMap } from '../types/interfaces';
 
-interface RangeCellRendererProps {
+interface CellRendererProps {
   cell: DateCell;
-  range: DateRangeMap;
+  range?: DateRangeMap;
+  date?: Date;
   primaryColor: string;
   secondaryColor: string;
   cellHeight: string;
+  dark?: Boolean;
   customCell?: (cell: DateCell, isHighlighted: Boolean, showPreview: Boolean) => JSX.Element;
 }
 
-const RangeCellRenderer = ({
+const CellRenderer = ({
   cell,
   range,
+  date,
   primaryColor,
   secondaryColor,
   cellHeight,
+  dark,
   customCell,
-}: RangeCellRendererProps) => {
+}: CellRendererProps) => {
   // checking if the current cell is isHighlighted in the hashmap
-  const currentRangeCellData = range[formatISO9075(cell.date, { representation: 'date' })];
-  const isHighlighted = !!currentRangeCellData && !currentRangeCellData?.preview;
-  const showPreview = currentRangeCellData?.preview && !cell.options?.disabled;
+  let currentRangeCellData = range && range[formatISO9075(cell.date, { representation: 'date' })];
+  let isHighlighted = !!currentRangeCellData && !currentRangeCellData?.preview;
+  let showPreview = (currentRangeCellData?.preview && !cell.options?.disabled) || false;
+
+  if (date) {
+    isHighlighted = isEqual(
+      cell.date,
+      set(date, { minutes: 0, hours: 0, seconds: 0, milliseconds: 0 }),
+    );
+  }
 
   // when a custom cell is provided we return that element
   if (!!customCell) {
@@ -37,6 +48,7 @@ const RangeCellRenderer = ({
     showPreview,
     currentRangeCellData?.position !== undefined && currentRangeCellData?.position === 'center',
     cell.options?.disabled,
+    dark,
   );
 
   return (
@@ -47,11 +59,13 @@ const RangeCellRenderer = ({
         color: textColor,
         height: cellHeight,
       }}
-      className='rsdr_range-cell'
+      className={`rsdr_cell ${cell.options?.disabled ? 'rsdr_disabled' : ''}  ${
+        dark ? 'rsdr_dark' : ''
+      }`}
     >
       {cell.date.getDate()}
     </div>
   );
 };
 
-export default RangeCellRenderer;
+export default CellRenderer;

@@ -64,7 +64,7 @@ input {
 }
 
 .rsdr_header {
-  height: 48px;
+  height: 64px;
   border-radius: 16px 16px 0px 0px;
   display: flex;
   align-items: center;
@@ -153,27 +153,15 @@ input {
   justify-content: center;
   height: 40px;
   padding: 8px;
-  border-radius: 9.6px;
   cursor: pointer;
 }
 
-.rsdr_range-cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  padding: 8px;
-  cursor: pointer;
-  background-color: #ffffff;
+.rsdr_cell:not(.rsdr_disabled):not(.rsdr_active):not(.rsdr_dark):hover {
+  background-color: #f1f5f9;
 }
 
-.rsdr_cell:not(.rsdr_disabled):not(.rsdr_active):hover {
-  background-color: #f8fafc;
-}
-
-.rsdr_range-cell:not(.rsdr_disabled):not(.rsdr_active):hover {
-  background-color: #f8fafc;
-  border-radius: 8px;
+.rsdr_cell:not(.rsdr_disabled):not(.rsdr_active).rsdr_dark:hover {
+  background-color: #1f2937;
 }
 
 .rsdr_disabled {
