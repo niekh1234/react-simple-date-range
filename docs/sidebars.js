@@ -18,7 +18,7 @@ const sidebars = {
         type: 'generated-index',
       },
       collapsed: false,
-      items: ['basic-guide', 'color-customization', 'custom-cells'],
+      items: ['basic-guide', 'color-customization', 'dark-mode', 'custom-cells'],
     },
   ],
 };

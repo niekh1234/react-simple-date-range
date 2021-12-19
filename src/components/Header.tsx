@@ -97,7 +97,7 @@ const RSDRHeader = ({
         <select
           value={month}
           style={{
-            backgroundColor: dark ? '#1f2937' : '#ffffff',
+            backgroundColor: dark ? '#111827' : '#ffffff',
             color: dark ? '#ffffff' : '#000000',
           }}
           onChange={(e) => onSetMonth(parseInt(e.target.value))}
@@ -111,7 +111,7 @@ const RSDRHeader = ({
         <select
           value={year}
           style={{
-            backgroundColor: dark ? '#1f2937' : '#ffffff',
+            backgroundColor: dark ? '#111827' : '#ffffff',
             color: dark ? '#ffffff' : '#000000',
           }}
           onChange={(e) => onSetYear(parseInt(e.target.value))}
