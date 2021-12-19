@@ -1,4 +1,4 @@
-import { eachDayOfInterval, formatISO9075, isAfter, isBefore, max, min } from 'date-fns';
+import { eachDayOfInterval, formatISO9075, isAfter, isBefore, max, min, set } from 'date-fns';
 import { DateCell, DateRange, DateRangeMap } from '../types/interfaces';
 
 export const getDatesInRange = (
@@ -11,8 +11,8 @@ export const getDatesInRange = (
   }
 
   const r = {
-    start: range.start,
-    end: range.end,
+    start: set(range.start, { hours: 0, minutes: 0, seconds: 0, milliseconds: 0 }),
+    end: set(range.end, { hours: 0, minutes: 0, seconds: 0, milliseconds: 0 }),
   };
 
   const cellStartDate = month[0].date;
@@ -54,11 +54,11 @@ export const getDatesInRange = (
   dateMap[minDateKey].position = 'start';
   dateMap[maxDateKey].position = 'end';
 
-  if (isAfter(minDate, range.start)) {
+  if (isAfter(minDate, r.start)) {
     dateMap[minDateKey].position = 'center';
   }
 
-  if (isBefore(maxDate, range.end)) {
+  if (isBefore(maxDate, r.end)) {
     dateMap[maxDateKey].position = 'center';
   }
 
