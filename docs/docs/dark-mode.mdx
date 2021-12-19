@@ -1,0 +1,22 @@
+import DarkModeExample from '../src/components/DarkModeExample';
+
+# Dark mode
+
+You can use the `dark` prop to enable or disable dark mode.
+Combine them with the `primaryColor` and `secondaryColor` props to create a seamless color scheme.
+
+## Usage
+
+```jsx {4-6}
+<DateRangePicker
+  value={range}
+  onChange={(newRange) => setRange(() => newRange)}
+  dark
+  primaryColor='#1f2937'
+  secondaryColor='#374151'
+></DateRangePicker>
+```
+
+### Result
+
+<DarkModeExample></DarkModeExample>

@@ -1,1 +1,47 @@
+import ColorDateRangeExample from '../src/components/ColorDateRangeExample';
+
 # Color customization
+
+You can specify the `primaryColor` and `secondaryColor` using the props on the `DatePicker` or `DateRangePicker` components.
+
+:::note
+
+It is currently not possible to customize the background or hover state colors at the moment.
+
+:::
+
+### Overwriting built-in colors
+
+If for some reason you want to change the default styling, you can target the different html elements pretty easily by inspecting the source code. All react-simple-date-range classes start with `rsdr_`.
+You could also fork the project and write your own stylesheet. Passing your own stylesheet is on our roadmap.
+
+## Usage
+
+```jsx {11-12}
+import { useState } from 'react';
+import { DateRange, DateRangePicker } from 'react-simple-date-range';
+
+const ColorDateRangeExample = () => {
+  const [range, setRange] = useState({ start: null, end: null } as DateRange);
+
+  return (
+    <DateRangePicker
+      value={range}
+      onChange={(newDate) => setRange(() => newDate)}
+      primaryColor='#84cc16'
+      secondaryColor='#d9f99d'
+    ></DateRangePicker>
+  );
+};
+
+export default ColorDateRangeExample;
+```
+
+### Result
+
+<ColorDateRangeExample />
+
+More examples
+
+<ColorDateRangeExample primaryColor='#ea580c' secondaryColor='#fdba74' />
+<ColorDateRangeExample primaryColor='#c026d3' secondaryColor='#a5b4fc' />
