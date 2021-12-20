@@ -1,4 +1,6 @@
-# React Simple Date Range
+# React Simple Date Range (WIP)
+
+### This package is still being worked on, use with caution
 
 A fast, modern and highly customizable Date range picker for React. Integrates seamlessly React Hook form and can be styled using your favourite css framework like tailwindcss.
 
